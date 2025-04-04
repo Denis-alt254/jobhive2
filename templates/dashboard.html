@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Dashboard</h1>
+<a href="/post-job" class="btn btn-success mb-3">Post New Job</a>
+
+<div class="row">
+    {% for job in jobs %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ job[1] }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ job[2] }}</h6>
+                <p class="card-text">{{ job[5] }}</p>
+                <p class="card-text">
+                    <small class="text-muted">{{ job[3] }} • {{ job[4] }}</small>
+                </p>
+                <a href="/delete-job/{{ job[0] }}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

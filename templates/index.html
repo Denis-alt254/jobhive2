@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>Latest Jobs</h1>
+        {% for job in jobs %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ job[1] }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ job[2] }}</h6>
+                <p class="card-text">{{ job[5] }}</p>
+                <p class="card-text">
+                    <small class="text-muted">{{ job[3] }} • {{ job[4] }}</small>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
